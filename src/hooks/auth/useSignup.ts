@@ -19,7 +19,7 @@ const useSignup = () => {
   };
 
   const submit = async () => {
-    if (signupData.username.length === 0 || signupData.password.length === 0) {
+    if (signupData.username.trim().length === 0 || signupData.password.trim().length === 0) {
       notification.error({
         message: "에러",
         description: "모든 칸을 채워주세요.",

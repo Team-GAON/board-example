@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { getCookie, removeCookie } from '../../libs/react-cookie/cookie'
 import * as S from './style'
+import { notification } from 'antd';
 
 const Header = () => {
 
@@ -11,6 +12,7 @@ const Header = () => {
   const logout = () => {
     removeCookie('ACCESS_TOKEN');
     removeCookie('REFRESH_TOKEN');
+    notification.success({message:'로그아웃 성공',description:'로그아웃 되었습니다.'});
     navigate('/login');
   }
 
