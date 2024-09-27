@@ -10,7 +10,7 @@ const Layout = () => {
   const location = useLocation();
 
   useEffect(()=>{
-    if(location.pathname === '/write') {
+    if(location.pathname === '/write' || location.pathname.includes('/edit')) {
       setViewState(false);
     }else{
       setViewState(true);

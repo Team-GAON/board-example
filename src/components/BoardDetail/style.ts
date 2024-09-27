@@ -77,9 +77,50 @@ export const Like = styled.img`
   cursor: pointer;
 `
 
-export const LikeButton = styled.button`
+export const Button = styled.button`
   background-color:transparent;
   border:none;
   outline:none;
   text-align:center;
+  position: relative;
+`
+
+export const ManageIcon = styled.img`
+  width:4rem;
+  height:4rem;
+  object-fit:cover;
+  object-position:center;
+  cursor:pointer;
+`
+
+export const ManageLayout = styled.div`
+  width:100vw;
+  height:100vh;
+`
+
+export const ManageWrap = styled.div`
+  width:15rem;
+  height:10rem;
+  background-color:white;
+  border-radius:1rem;
+  position:absolute;
+  bottom: -10rem;
+  right: 2rem;
+  border:0.1rem solid #ccc;
+  overflow:hidden;
+`
+
+export const ManageItem = styled.div`
+  width:100%;
+  height:50%;
+  display:flex;
+  align-items:center;
+  padding:0 1rem;
+  box-sizing:border-box;
+  font-size:2rem;
+  cursor: pointer;
+  transition:all 0.5s;
+  &:hover{
+    background-color:#F1F1F1;
+  }
 `
