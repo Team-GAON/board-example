@@ -20,7 +20,10 @@ const useSignup = () => {
 
   const submit = async () => {
     if (signupData.username.length === 0 || signupData.password.length === 0) {
-      notification.error({ message: "모든 칸을 채워주세요." });
+      notification.error({
+        message: "에러",
+        description: "모든 칸을 채워주세요.",
+      });
       return;
     }
     try {
@@ -30,11 +33,25 @@ const useSignup = () => {
         signupData
       );
       if (res) {
-        notification.info({ message: "서비스 이용을 위해 로그인 해주세요." });
+        notification.success({
+          message: "성공",
+          description: "서비스 이용을 위해 로그인 해주세요.",
+        });
         navigate("/login");
       }
-    } catch {
-      notification.error({ message: "모든 칸을 채워주세요." });
+    } catch (err: any) {
+      console.log(err);
+      if (err.response && err.response.status === 409) {
+        notification.error({
+          message: "회원가입 실패",
+          description: "이미 사용 중인 아이디입니다.",
+        });
+        return;
+      }
+      notification.error({
+        message: "회원가입 실패",
+        description: "네트워크 에러",
+      });
     } finally {
       setLoading(false);
     }

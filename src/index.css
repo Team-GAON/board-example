@@ -2,6 +2,19 @@
 
 * {
   margin: 0;
-  font-size: 10px;
   font-family: Pretendard;
+  font-size: 10px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -ms-overflow-style: none; /* 인터넷 익스플로러 */
+  scrollbar-width: none; /* 파이어폭스 */
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+body{
+  overflow-y: hidden;
 }

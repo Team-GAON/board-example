@@ -48,7 +48,7 @@ instance.interceptors.response.use(
 
     if (originalRequest && !originalRequest._retry) {
       originalRequest._retry = true;
-      const refreshToken = localStorage.getItem("REFRESH_TOKEN");
+      const refreshToken = getCookie("REFRESH_TOKEN");
       if (refreshToken) {
         return axios
           .post(
@@ -58,8 +58,8 @@ instance.interceptors.response.use(
             }
           )
           .then((response) => {
-            const newAccessToken = response.data.data.accessToken;
-            const newRefreshToken = response.data.data.refreshToken;
+            const newAccessToken = response.data.accessToken;
+            const newRefreshToken = response.data.refreshToken;
             setCookie("ACCESS_TOKEN", newAccessToken, {path:'/'});
             setCookie("REFRESH_TOKEN", newRefreshToken, {
               path: "/",
