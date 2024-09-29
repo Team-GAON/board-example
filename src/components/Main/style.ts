@@ -6,7 +6,6 @@ export const Container = styled.div`
   display:flex;
   overflow-y:scroll;
   align-items:center;
-  display:flex;
   flex-direction:column;
   padding:4rem;
   box-sizing:border-box;
